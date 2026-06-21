@@ -4,7 +4,7 @@ from aiogram.filters import CommandStart
 from aiohttp import web # Render o'chirib qo'ymasligi uchun veb-server
 
 # BotFather bergan tokeningizni shu yerga qo'ying
-TOKEN = "O'ZINGIZNING_TOKENINGIZNI_QO'YING"
+TOKEN = "8820650049:AAFmN0-wKtNA3ag5WHfj7wfSMdDQF7O9m4c"
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
