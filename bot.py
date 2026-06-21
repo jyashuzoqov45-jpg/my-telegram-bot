@@ -49,4 +49,19 @@ async def main():
     await dp.start_polling(bot)
 
 if __name__ == '__main__':
-    asyncio.run(main())
+    async def main():
+    # 1. Veb-serverni sozlash (Render portini avtomatik olish)
+    import os
+    port = int(os.environ.get("PORT", 10000)) # Render bergan portni oladi, bo'lmasa 10000
+    
+    app = web.Application()
+    app.router.add_get('/', handle)
+    runner = web.AppRunner(app)
+    await runner.setup()
+    site = web.TCPSite(runner, '0.0.0.0', port)
+    asyncio.create_task(site.start())
+
+    print("Sizning o'rinbosaringiz (Chat-bot) ishga tushdi...")
+    
+    # 2. Botni ishga tushirish
+    await dp.start_polling(bot)
